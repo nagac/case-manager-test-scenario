@@ -1,0 +1,163 @@
+html, body
+    height: 100%
+
+body
+    background: $light-grey
+    font-family: $font-family
+    line-height: $line-height
+
+h1
+    font-size: $h1-fs
+
+h2
+    font-size: $h2-fs
+
+h3
+    font-size: $h3-fs
+    color: $grey
+    border-bottom: 1px solid $very-light-grey
+    padding-bottom: $sm-space
+    margin-bottom: $md-space
+
+h4
+    font-size: $h4-fs
+
+h5
+    font-size: $h5-fs
+
+h6
+    color: $light-purple
+    font-size: $h6-fs
+.row
+    overflow: hidden
+#wrapper
+    display: flex
+    min-height: 100%
+    margin: 0 auto
+    overflow: hidden
+    min-width: $wrapper-size
+
+textarea
+    background: $light-grey
+    border: none
+    border-radius: 8px
+    font-size: $base-font-size
+    font-family: 'courier new'
+    padding: $sm-space
+    box-sizing: border-box
+    width: 100%
+    height: 360px
+    margin: 0
+    resize: none
+    word-break: break-all
+
+ol
+    list-style: decimal
+    margin: 18px
+
+#description
+    div
+        div:first-child
+            border-right: 1px solid $very-light-grey
+            width: 60%
+            padding-right: $md-space
+            margin-right: $md-space
+        div:nth-child(2)
+            width: 40%
+
+        div
+            float: left
+
+pre
+    font-family: 'courier new'
+    font-size: $base-font-size
+
+.col-1
+    width: $col-1
+
+.col-2
+    background: $white
+    box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
+    width: 252px
+
+.col-3
+    width: $col-3
+
+.col-4
+    width: $col-4
+
+.col-5
+    width: $col-5
+
+.col-6
+    width: $col-6
+
+.col-7
+    width: $col-7
+
+.col-8
+    width: $col-8
+
+.col-9
+    width: $col-9
+
+.col-10
+    // border-top: 4px solid $yellow
+    width: 100%
+
+.col-11
+    width: $col-11
+
+.col-12
+    width: $col-12
+
+[class^="col-"]
+    box-sizing: border-box
+    float: left
+
+#logo
+    display: block
+    margin: 0 auto
+    padding: $md-space
+    text-align: center
+
+nav
+    li a
+        color: $dark-grey
+        display: block
+        font-size: 14px
+        padding: $xs-space $sm-space
+        text-decoration: none
+        &:hover, &.selected
+            background: $yellow
+            color: $white
+
+header
+    background: $purple
+    color: $white
+    height: $header-space
+    padding: $md-space
+
+section
+    background: $white
+    box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
+    margin: 0 $grid-gutter-width * 2
+    padding: $grid-gutter-width * 2
+    border-radius: 8px
+
+    &#description
+        background: $white
+        margin-top: -$xxxl-space * 1.5
+
+.row
+    display: flex
+    margin: $grid-gutter-width
+    section
+        float: left
+        margin: $grid-gutter-width
+        &#api
+            width: 60%
+        &#result
+
+pre
+    word-break: break-all
