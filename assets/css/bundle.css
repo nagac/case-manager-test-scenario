@@ -55,6 +55,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5; }
 
+::selection {
+  background: #9c97ac; }
+
 h1 {
   font-size: 2.0272865295rem; }
 
