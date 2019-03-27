@@ -13,10 +13,10 @@ h2
     font-size: $h2-fs
 
 h3
-    font-size: $h3-fs
+    font-size: $h5-fs
     color: $grey
     border-bottom: 1px solid $very-light-grey
-    padding-bottom: $sm-space
+    padding-bottom: $md-space
     margin-bottom: $md-space
 
 h4
@@ -46,7 +46,7 @@ textarea
     padding: $sm-space
     box-sizing: border-box
     width: 100%
-    height: 200px
+    height: 300px
     margin: 0
     resize: none
     word-break: break-all
@@ -124,13 +124,18 @@ pre
 nav
     li a
         color: $dark-grey
+        border-top-right-radius: 20px
+        border-bottom-right-radius: 20px
         display: block
         font-size: 14px
-        padding: $xs-space $sm-space
+        padding: $xs-space + 4 $sm-space
+        margin-right: $sm-space
         text-decoration: none
-        &:hover, &.selected
-            background: $yellow
-            color: $white
+        &:hover
+            background: $very-light-grey
+        &.selected, &.focus
+            background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%)
+            // font-weight: bold
 
 header
     background: $purple
@@ -138,12 +143,21 @@ header
     height: $header-space
     padding: $md-space
 
+#particles-js
+    position: fixed
+    top: 0
+    width: 100%
+    height: $header-space
+
+.col-10
+    position: relative
+
 section
     background: $white
     box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
     margin: 0 $grid-gutter-width * 2
     padding: $grid-gutter-width * 2
-    border-radius: 8px
+    border-radius: 16px
 
     &#description
         background: $white
@@ -161,3 +175,26 @@ section
 
 pre
     word-break: break-all
+
+.inline-button-right
+    float: right
+
+button
+    border: none
+    font-size: $base-font-size / 1.2
+    border-radius: 20px
+    padding: $sm-space $md-space
+    cursor: pointer
+
+button
+    &.primary
+        background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%)
+        color: $grey
+        // font-weight: bold
+        // text-shadow: 1px 1px 0 #d0d0d0
+    &.secondary
+        border: 1px solid $yellow
+
+
+button:focus, input:focus, textarea:focus, a:focus
+    outline: 2px dotted $mid-grey

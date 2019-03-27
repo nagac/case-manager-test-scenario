@@ -10,8 +10,8 @@
                 <h1 id="logo"><img src="assets/images/hawkai-logo.png" alt="Hawk:AI"></h1>
                 <nav>
                     <Ul>
-                        <li><a href="#" class="selected">Simple False Positive</a></li>
-                        <li><a href="iran-sanction.html">Iran Sanction</a></li>
+                        <li><a href="index.html">Simple False Positive</a></li>
+                        <li><a href="#" class="selected">Iran Sanction</a></li>
                         <li><a href="#">Sanction Auto-close</a></li>
                         <li><a href="#">High Risk Country</a></li>
                         <li><a href="#">Send Money Home to Family</a></li>
@@ -21,9 +21,8 @@
             </div>
             <div class="col-10">
                 <header>
-                    <h2>Simple False Positive</h2>
+                    <h2>Iran Sanction</h2>
                     <h6>Small description goes here</h6>
-                    <div id="particles-js"></div>
                 </header>
                 <section id="description">
                     <div class="row">
@@ -47,7 +46,7 @@
                 </section>
                 <div class="row">
                     <section id="api">
-                        <h3>API Request<span class="inline-button-right"><button id="run-scenario" type="button" class="btn primary">Run Scenario</button></span></h3>
+                        <h3>API Request<span class="inline-button-right"><button type="button" class="btn primary">Run Scenario</button></span></h3>
                         <form>
                             <textarea>
 {
@@ -83,7 +82,7 @@
                         </form>
                     </section>
                     <section id="result">
-                        <h3>Result<span class="inline-button-right"><button type="button" class="btn secondary"><span>View in Case Manager</span></button></span></h3>
+                        <h3>Result<span class="inline-button-right"><button type="button" class="btn secondary">View in Case Manager</button></span></h3>
                         <pre>
 {
   "tenantTransactionId":"12345678”,
@@ -94,19 +93,5 @@
                 </div>
             </div>
         </div>
-
-        <!-- scripts -->
-        <script src="assets/vendor/particles/js/particles.js"></script>
-        <script src="assets/vendor/particles/js/app.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-
-        <!-- processing button -->
-        <script>
-            $(document).ready(function(){
-                $('#run-scenario').click(function() {
-                    $("#run-scenario").text('Processing Scenario...').delay( 8000 );
-                })
-            });
-        </script>
     </body>
 </html>
