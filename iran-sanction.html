@@ -21,6 +21,7 @@
             </div>
             <div class="col-10">
                 <header>
+                    <div id="particles-js"></div>
                     <h2>Iran Sanction</h2>
                     <h6>Small description goes here</h6>
                 </header>
@@ -93,5 +94,20 @@
                 </div>
             </div>
         </div>
+
+         <!-- scripts -->
+         <script src="assets/vendor/particles/js/particles.js"></script>
+         <script src="assets/vendor/particles/js/app.js"></script>
+         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+ 
+         <!-- processing button -->
+         <script>
+             $(document).ready(function(){
+                 $('#run-scenario').click(function() {
+                     $("#run-scenario").text('Processing Scenario...').delay( 8000 );
+                 })
+             });
+         </script>
+         
     </body>
 </html>
