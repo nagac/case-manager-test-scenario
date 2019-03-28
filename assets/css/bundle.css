@@ -176,9 +176,7 @@ pre {
 
 #logo {
   display: block;
-  margin: 0 auto;
-  padding: 24px;
-  text-align: center; }
+  padding: 24px; }
 
 nav li a {
   color: #404040;
