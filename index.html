@@ -6,15 +6,7 @@
 
         <!-- scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
-
-        <style>
-        .POST, .GET, .PUT, #result pre {
-            font-family: "Courier New", monospace;
-            white-space: pre;
-            font-size: smaller;
-        }
-        </style>
+        <script src="assets/js/hawk-response.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -38,7 +30,7 @@
                     <h6>Small description goes here</h6>
                 </header>
                 <section id="description">
-                    <div class="row">
+                    <div class="row" style="margin: 0">
                         <div>
                             <h3>Description</h3>
                             <ol>
@@ -58,48 +50,46 @@
                     </div>
                 </section>
                 <div class="row">
-                    <section id="api">
-                        <h3>API Request<span class="inline-button-right"><div class="POST">
-                                {
-                                    "accountHoldingParty": "FUNDS_ORIGINATOR",
-                                    "appendedCustomData": {
-                                        "additionalCustomerId": "12345678" },
-                            
-                                    "balanceBeforeTransaction": 1234.56,
-                                    "balanceCurrency": "EUR",
-                                    "callbackUrl": "https://callback.url/1234",
-                                    
-                                    "fundsBeneficiary": {
-                                        "accountNumber": "CZ1873382772061233133661",
-                                        "bankIdentifier": "SSKMDEMM",
-                                        "holder": "Expecting-NEW for-this-case" },
-                                    
-                                    "fundsOriginator": {
-                                        "accountNumber": "CZ1873382772061233133661",
-                                        "bankIdentifier": "SSKMDEMM",
-                                        "holder": "Tuan Nguyen" },
-                                    
-                                    "initiatedAmount": 12.34,
-                                    "initiatedCurrency": "EUR",
-                                    "initiatingParty": "FUNDS_ORIGINATOR",
-                                    "purposeCode": "SSBE",
-                                    "settledAmount": 56.78,
-                                    "settledCurrency": "EUR",
-                                    "tenantCustomerId": 12345678,
-                                    "tenantProcessingTimestamp": "2019-02-28T14:38:47.812",
-                                    "tenantTransactionId": 12345678,
-                                    "usage": "Testing hawk:AI NEW processing status" }
-                                </div></span></h3>
-
+                    <section>
+                        <h3 id="api">API Request<span class="inline-button-right"></span></h3>
+                        <!-- <div id="store"></div> -->
+                        <div class="POST">
+{
+    "accountHoldingParty": "FUNDS_ORIGINATOR",
+    "appendedCustomData": {
+        "additionalCustomerId": "12345678"
+    },
+    "balanceBeforeTransaction": 1234.56,
+    "balanceCurrency": "EUR",
+    "callbackUrl": "https://callback.url/1234",
+    "fundsBeneficiary": {
+        "accountNumber": "CZ1873382772061233133661",
+        "bankIdentifier": "SSKMDEMM",
+        "holder": "Expecting-NEW for-this-case"
+    },
+    "fundsOriginator": {
+        "accountNumber": "CZ1873382772061233133661",
+        "bankIdentifier": "SSKMDEMM",
+        "holder": "Tuan Nguyen"
+    },
+    "initiatedAmount": 12.34,
+    "initiatedCurrency": "EUR",
+    "initiatingParty": "FUNDS_ORIGINATOR",
+    "purposeCode": "SSBE",
+    "settledAmount": 56.78,
+    "settledCurrency": "EUR",
+    "tenantCustomerId": 12345678,
+    "tenantProcessingTimestamp": "2019-02-28T14:38:47.812",
+    "tenantTransactionId": 12345678,
+    "usage": "Testing hawk:AI NEW processing status"
+    }
+                        </div>
                     </section>
                     <section id="result">
-                        <h3>Result<span class="inline-button-right"><button type="button" class="btn secondary">View in Case Manager</button></span></h3>
-                        <pre>
-{
-  "tenantTransactionId":"12345678”,
-  ”caseId":"9a088429-eac5-4b5f-9d31-9361cf5cc33d",
-  "proceed":true }
-                        </pre>
+                        <h3>Result<span class="inline-button-right"></span></h3>
+                        <div id="json-response" class="code">
+                            <p>No Scenario Processed...</p>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -109,90 +99,5 @@
         <script src="assets/vendor/particles/js/particles.js"></script>
         <script src="assets/vendor/particles/js/app.js"></script>
 
-        <!-- processing button -->
-        <script>
-            $(document).ready(function(){
-                $('#run-scenario').click(function() {
-                    $("#run-scenario").text('Processing Scenario...').delay( 8000 );
-                })
-            });
-
-            function getFileNameForStorage() {
-                var fullFilename = window.location.href;
-                var indexFrom = fullFilename.lastIndexOf('/') + 1;
-                var length = fullFilename.indexOf(".html") - indexFrom + 5;
-                var name = fullFilename.substr(indexFrom, length)
-
-                return name;
-            }
-
-            function addStoreLink() {
-
-                var data = "<html>" + $("html").html() + "</html>";
-                $('#store').children().remove();
-                var data = "<html>" + $("html").contents()[1].parentNode.innerHTML + "</html>";
-                var exportLink = document.createElement('a');
-                var name = getFileNameForStorage();
-                exportLink.setAttribute("download", name);
-                exportLink.setAttribute('href', 'data:text/csv;base64,' + window.btoa(data));
-                exportLink.appendChild(document.createTextNode('store to local hard disk: ' + name));
-                exportLink.setAttribute('id', "linkToStore")
-                $('#store').append(exportLink);
-                $('#linkToStore').click(addStoreLink)
-            }
-
-            function handleHttpsForStorage() {
-                if (window.location.href.startsWith("https")) {
-                    alert("As this test sheet is hosted under https and our dev machine in on http it needs to be stored locally and opened from there.");
-                    document.getElementById('linkToStore').click()
-                    alert("Document stored in download folder as:\n'" + getFileNameForStorage() + "'");
-                    $('button').attr("disabled", true);
-                    $('button').attr("title", "Please store as a https page cannot call http content!");
-                }
-                else {
-                    $('button').attr("disabled", false);
-                    $('button').attr("title", "Click to send to dev system!");
-                }
-            }
-
-            // display the button
-            function prepareRequests() {
-                if ($(".testButton").length == 0) {
-                    $("h3 span").append("<Button id='run-scenario' class='testButton btn primary'>Run Scenario!</Button>")
-                }
-            }
-        
-            // click to execute
-            $(document).ready(function () {
-                prepareRequests();
-                $(".POST,.GET,.PUT").siblings("button").click(executeRequest);
-                addStoreLink();
-                handleHttpsForStorage();
-            });
-
-            // execute request
-            function executeRequest(event) {
-                $.ajax
-                ({
-                    type: $(event.target).siblings("div").attr("class"),
-                    headers: {
-                        'api-key': '4yRVMZ3L8s2*7C5c#',
-                        'Content-Type': 'application/json'
-                    },
-                    url: 'http://a18428cc0997511e8adf30215972eacb-798119299.eu-central-1.elb.amazonaws.com/v1/amlChecks',
-                    dataType: 'json',
-                    async: false,
-                    data: $(event.target).parent().text(),
-                    success: function (response) {
-                        // alert(JSON.stringify(response));
-                        $("#result pre").append(JSON.stringify(response));
-                    },
-                    error: function (response) {
-                        alert("ERROR\nThis was the request:" + JSON.stringify(event.target.previousSibling.text) + " and this the response" + JSON.stringify(response));
-                    }
-                })
-            }
-        </script>
-        
     </body>
 </html>

@@ -65,11 +65,11 @@ h2 {
   font-size: 1.8020324707rem; }
 
 h3 {
-  font-size: 1.265625rem;
+  font-size: 1.125rem;
   color: #404040;
   border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 24px;
-  margin-bottom: 24px; }
+  padding-bottom: 12px;
+  margin-bottom: 12px; }
 
 h4 {
   font-size: 1.423828125rem; }
@@ -81,8 +81,9 @@ h6 {
   color: #9c97ac;
   font-size: 1.125rem; }
 
-.row {
-  overflow: hidden; }
+a {
+  font-size: 1rem;
+  color: #ec9a0d; }
 
 #wrapper {
   display: flex;
@@ -91,19 +92,25 @@ h6 {
   overflow: hidden;
   min-width: 1340px; }
 
-textarea {
+.POST {
   background: #f6f6f6;
-  border: none;
+  border: 24px solid #f6f6f6;
   border-radius: 8px;
   font-size: 1rem;
   font-family: "courier new";
-  padding: 12px;
   box-sizing: border-box;
   width: 100%;
   height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   margin: 0;
   resize: none;
   word-break: break-all; }
+
+.POST, .GET, .PUT, .code {
+  font-family: "Courier New", monospace;
+  word-break: break-word;
+  font-size: 1rem; }
 
 ol {
   list-style: decimal;
@@ -213,12 +220,12 @@ section {
 
 .row {
   display: flex;
-  margin: 12px; }
+  margin: 12px;
+  overflow: hidden; }
   .row section {
     float: left;
-    margin: 12px; }
-    .row section#api {
-      width: 60%; }
+    margin: 12px;
+    width: 50%; }
 
 pre {
   word-break: break-all; }
@@ -230,16 +237,16 @@ button {
   border: none;
   font-size: 0.8333333333rem;
   border-radius: 20px;
-  padding: 12px 24px;
+  padding: 10px 24px;
   cursor: pointer; }
 
-button.primary {
+button.btn-primary {
   background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%);
   color: #404040; }
-button.secondary {
+button.btn-secondary {
   border: 1px solid #ec9a0d; }
 
-button:focus, input:focus, textarea:focus, a:focus {
+button:focus, input:focus, .POST:focus, a:focus {
   outline: 2px dotted #a0a0a0; }
 
 /*# sourceMappingURL=bundle.css.map */
