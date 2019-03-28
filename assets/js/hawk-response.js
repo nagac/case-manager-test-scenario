@@ -57,14 +57,12 @@ function executeRequest(event) {
         async: false,
         data: $(event.target).parent().text(),
         success: function (response) {
-            // alert(JSON.stringify(response));  
             $("#result #json-response").text(JSON.stringify(response));
-            $("#result #json-response").text(JSON.jsonPretty(response));
             $("#result h3 span a").remove();
             $("#result h3 span").append("<a href='#'' class=''>View in Case Manager</a>");
         },
         error: function (response) {
-            $("#result #json-response").text("ERROR\nThis was the request:" + JSON.stringify(event.target.previousSibling.text) + " and this the response" + JSON.stringify(response));
+            $("#result #json-response").wrap('<p class="error"></p>').text("ERROR\nThis was the request:<br/>" + JSON.stringify(event.target.previousSibling.text) + " and this the response" + JSON.stringify(response));
         }
     })
     $("#run-scenario").text('Processing Scenario...').fadeOut();
