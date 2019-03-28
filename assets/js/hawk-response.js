@@ -57,9 +57,9 @@ function executeRequest(event) {
         async: false,
         data: $(event.target).parent().text(),
         success: function (response) {
-            // alert(JSON.stringify(response));
+            // alert(JSON.stringify(response));  
             $("#result #json-response").text(JSON.stringify(response));
-            $("#result #json-response").text(JSON.stringify(response));
+            $("#result #json-response").text(JSON.jsonPretty(response));
             $("#result h3 span a").remove();
             $("#result h3 span").append("<a href='#'' class=''>View in Case Manager</a>");
         },
