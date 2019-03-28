@@ -62,7 +62,7 @@ function executeRequest(event) {
             $("#result h3 span").append("<a href='#'' class=''>View in Case Manager</a>");
         },
         error: function (response) {
-            $("#result #json-response").text('<p class="error">"ERROR\nThis was the request:<br/>" + JSON.stringify(event.target.previousSibling.text) + " and this the response" + JSON.stringify(response)</p>');
+            $("#result #json-response p.error").text("ERROR\nThis was the request:<br/>" + JSON.stringify(event.target.previousSibling.text) + " and this the response" + JSON.stringify(response));
         }
     })
     $("#run-scenario").text('Processing Scenario...').fadeOut();

@@ -251,4 +251,7 @@ button.btn-secondary {
 button:focus, input:focus, .POST:focus, a:focus {
   outline: 2px dotted #a0a0a0; }
 
+.error {
+  color: #ff0000; }
+
 /*# sourceMappingURL=bundle.css.map */
