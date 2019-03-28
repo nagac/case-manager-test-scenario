@@ -3,19 +3,12 @@
     <head>
         <title>Case Manager: Test Scenario</title>
         <link href="assets/css/bundle.css" rel="stylesheet">
+        <link href="assets/images/favicon.jpg" rel="icon">
 
         <!-- scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="assets/js/hawk-response.js"></script>
-        <script>
-            $( document ).ready(function() {
-                var jsonStr = $(".pre").text();
-                var jsonObj = JSON.parse(jsonStr);
-                var jsonPretty = JSON.stringify(jsonObj, null, '\t');
 
-                $(".pre").text(jsonPretty);
-            });
-        </script>
     </head>
     <body>
         <div id="wrapper">
@@ -90,9 +83,7 @@
 "tenantProcessingTimestamp": "2019-02-28T14:38:47.812",
 "tenantTransactionId": 12345678,
 "usage": "Testing hawk:AI NEW processing status"
-}
-                            
-                                                    
+}                     
                             </div>
                         </div>
                     </section>

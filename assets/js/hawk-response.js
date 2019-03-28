@@ -1,3 +1,11 @@
+$( document ).ready(function() {
+    var jsonStr = $(".pre").text();
+    var jsonObj = JSON.parse(jsonStr);
+    var jsonPretty = JSON.stringify(jsonObj, null, '\t');
+
+    $(".pre").text(jsonPretty);
+});
+
 function getFileNameForStorage() {
     var fullFilename = window.location.href;
     var indexFrom = fullFilename.lastIndexOf('/') + 1;
@@ -59,7 +67,7 @@ function executeRequest(event) {
         success: function (response) {
             $("#result #json-response").text(JSON.stringify(response));
             $("#result h3 span a").remove();
-            $("#result h3 span").append("<a href='#'' class=''>View in Case Manager</a>");
+            $("#result h3 span").append("<a href='http://a39dc08367b8111e8adf30215972eacb-71037246.eu-central-1.elb.amazonaws.com:3000/caseManager/openCases/3a442036-2968-4ae4-ab2a-a656afdf2e30' target='_blank' class=''>View in Case Manager</a>");
         },
         error: function (response) {
             $("#result #json-response p.error").text("ERROR\nThis was the request:" + JSON.stringify(event.target.previousSibling.text) + " and this the response" + JSON.stringify(response));
