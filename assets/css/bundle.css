@@ -65,8 +65,9 @@ h1 {
 h2 {
   font-size: 1.4416259766rem; }
 
-h3 {
+h3, summary {
   font-size: 0.9rem;
+  font-weight: bold;
   color: #404040;
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 12px;
@@ -82,6 +83,9 @@ h6 {
   color: #9c97ac;
   font-size: 0.9rem; }
 
+p {
+  font-size: 0.8rem; }
+
 a {
   font-size: 0.8rem;
   color: #ec9a0d; }
@@ -91,7 +95,17 @@ a {
   min-height: 100%;
   margin: 0 auto;
   overflow: hidden;
-  min-width: 1340px; }
+  min-width: 1170px; }
+
+.col-2 {
+  background: #fff;
+  box-shadow: 4px 0 16px 0 rgba(0, 0, 0, 0.2);
+  width: 240px;
+  flex-shrink: 0; }
+
+.col-10 {
+  border-top: 4px solid #ec9a0d;
+  flex-grow: 1; }
 
 .POST {
   background: #f6f6f6;
@@ -118,57 +132,9 @@ ol {
   list-style: decimal;
   margin: 18px; }
 
-#description div div:first-child {
-  border-right: 1px solid #e0e0e0;
-  width: 60%;
-  padding-right: 24px;
-  margin-right: 24px; }
-#description div div:nth-child(2) {
-  width: 40%; }
-#description div div {
-  float: left; }
-
 pre {
   font-family: "courier new";
   font-size: 0.8rem; }
-
-.col-1 {
-  width: 88px; }
-
-.col-2 {
-  background: #fff;
-  box-shadow: 4px 0 16px 0 rgba(0, 0, 0, 0.2);
-  width: 252px; }
-
-.col-3 {
-  width: 264px; }
-
-.col-4 {
-  width: 352px; }
-
-.col-5 {
-  width: 440px; }
-
-.col-6 {
-  width: 528px; }
-
-.col-7 {
-  width: 616px; }
-
-.col-8 {
-  width: 704px; }
-
-.col-9 {
-  width: 792px; }
-
-.col-10 {
-  width: 100%; }
-
-.col-11 {
-  width: 968px; }
-
-.col-12 {
-  width: 1056px; }
 
 [class^="col-"] {
   box-sizing: border-box;
@@ -178,54 +144,64 @@ pre {
   display: block;
   padding: 24px; }
 
-nav li a {
-  color: #404040;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  display: block;
-  font-size: 0.8rem;
-  padding: 10px 12px;
-  margin-right: 12px;
-  text-decoration: none; }
-  nav li a:hover {
-    background: #e0e0e0; }
-  nav li a.selected, nav li a.focus {
-    background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%); }
+nav {
+  overflow-y: scroll;
+  max-height: 100%; }
+  nav li a {
+    color: #404040;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: block;
+    font-size: 0.8rem;
+    padding: 7.5px 24px;
+    margin-right: 12px;
+    text-decoration: none; }
+    nav li a:hover {
+      background: #e0e0e0; }
+    nav li a.active, nav li a.focus, nav li a:active {
+      background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%); }
 
 header {
   background: #392f5a;
   color: #fff;
-  height: 192px;
-  padding: 24px; }
+  height: 230.4px;
+  padding: 24px;
+  position: relative;
+  z-index: -1; }
 
-#particles-js {
+canvas {
   position: absolute;
+  left: 0;
   top: 0;
-  width: 100%;
-  height: 192px;
-  z-index: 0; }
+  z-index: -2; }
 
-.col-10 {
-  position: relative; }
+summary {
+  cursor: pointer;
+  margin-bottom: 0; }
 
-section {
+details, section {
   background: #fff;
   box-shadow: 4px 0 16px 0 rgba(0, 0, 0, 0.2);
   margin: 0 24px;
   padding: 24px;
   border-radius: 16px; }
-  section#description {
-    background: #fff;
-    margin-top: -129.6px; }
 
-.row {
+details {
   display: flex;
-  margin: 12px;
-  overflow: hidden; }
-  .row section {
-    float: left;
-    margin: 12px;
+  margin-top: -172.8px;
+  z-index: 10; }
+  details p {
+    margin-top: 12px; }
+
+#playground {
+  display: flex;
+  padding-top: 24px;
+  width: 100%; }
+  #playground section {
+    flex-grow: 0;
     width: 50%; }
+    #playground section:nth-child(2) {
+      margin-left: 0; }
 
 pre {
   word-break: break-all; }
@@ -235,18 +211,17 @@ pre {
 
 button {
   border: none;
-  font-size: 0.6666666667rem;
+  font-size: 0.8rem;
   border-radius: 20px;
   padding: 10px 24px;
   cursor: pointer; }
+  button.btn-primary {
+    background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%);
+    color: #404040; }
+  button.btn-secondary {
+    border: 1px solid #ec9a0d; }
 
-button.btn-primary {
-  background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%);
-  color: #404040; }
-button.btn-secondary {
-  border: 1px solid #ec9a0d; }
-
-button:focus, input:focus, .POST:focus, a:focus {
+button:focus, input:focus, .POST:focus, a:focus, summary:focus {
   outline: 2px dotted #a0a0a0; }
 
 .error {

@@ -16,8 +16,9 @@ h1
 h2
     font-size: $h2-fs
 
-h3
+h3, summary
     font-size: $h6-fs
+    font-weight: bold
     color: $grey
     border-bottom: 1px solid $very-light-grey
     padding-bottom: $sm-space
@@ -33,6 +34,9 @@ h6
     color: $light-purple
     font-size: $h6-fs
 
+p
+    font-size: $base-font-size
+
 a
     font-size: $base-font-size
     color: $yellow
@@ -42,7 +46,17 @@ a
     min-height: 100%
     margin: 0 auto
     overflow: hidden
-    min-width: $wrapper-size
+    min-width: 1170px
+
+.col-2
+    background: $white
+    box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
+    width: 240px
+    flex-shrink: 0
+
+.col-10
+    border-top: 4px solid $yellow
+    flex-grow: 1
 
 .POST
     background: $light-grey
@@ -61,7 +75,6 @@ a
     resize: none
     word-break: break-all
 
-
 .POST, .GET, .PUT, .code
     font-family: "Courier New", monospace
     word-break: break-word
@@ -71,61 +84,9 @@ ol
     list-style: decimal
     margin: 18px
 
-#description
-    div
-        div:first-child
-            border-right: 1px solid $very-light-grey
-            width: 60%
-            padding-right: $md-space
-            margin-right: $md-space
-        div:nth-child(2)
-            width: 40%
-
-        div
-            float: left
-
 pre
     font-family: 'courier new'
     font-size: $base-font-size
-
-.col-1
-    width: $col-1
-
-.col-2
-    background: $white
-    box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
-    width: 252px
-
-.col-3  
-    width: $col-3
-
-.col-4
-    width: $col-4
-
-.col-5
-    width: $col-5
-
-.col-6
-    width: $col-6
-
-.col-7
-    width: $col-7
-
-.col-8
-    width: $col-8
-
-.col-9
-    width: $col-9
-
-.col-10
-    // border-top: 4px solid $yellow
-    width: 100%
-
-.col-11
-    width: $col-11
-
-.col-12
-    width: $col-12
 
 [class^="col-"]
     box-sizing: border-box
@@ -136,56 +97,68 @@ pre
     padding: $md-space
 
 nav
+    overflow-y: scroll
+    max-height: 100%
     li a
         color: $dark-grey
         border-top-right-radius: 20px
         border-bottom-right-radius: 20px
         display: block
         font-size: $base-font-size
-        padding: $xs-space + 4 $sm-space
+        padding: $sm-space / 1.6 $md-space
         margin-right: $sm-space
         text-decoration: none
         &:hover
             background: $very-light-grey
-        &.selected, &.focus
+        &.active, &.focus, &:active
             background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%)
             // font-weight: bold
 
 header
     background: $purple
     color: $white
-    height: $header-space
+    height: $header-space * 1.2
     padding: $md-space
-
-#particles-js
-    position: absolute
-    top: 0
-    width: 100%
-    height: $header-space
-    z-index: 0
-
-.col-10
     position: relative
+    z-index: -1
 
-section
+canvas
+    position: absolute
+    left: 0
+    top: 0
+    z-index: -2
+
+summary
+    cursor: pointer
+    margin-bottom: 0
+
+details, section
     background: $white
     box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
     margin: 0 $grid-gutter-width * 2
     padding: $grid-gutter-width * 2
     border-radius: 16px
 
-    &#description
-        background: $white
-        margin-top: -$xxxl-space * 1.8
-
-.row
+details
     display: flex
-    margin: $grid-gutter-width
-    overflow: hidden
+    margin-top: -$xxxl-space * 2.4
+    z-index: 10
+
+    p
+        margin-top: $sm-space
+
+#playground
+    display: flex
+    padding-top: $md-space
+    width: 100%
+    
     section
-        float: left
-        margin: $grid-gutter-width
+        flex-grow: 0
         width: 50%
+        
+
+        &:nth-child(2)
+            margin-left: 0
 
 pre
     word-break: break-all
@@ -195,12 +168,11 @@ pre
 
 button
     border: none
-    font-size: $base-font-size / 1.2
+    font-size: $base-font-size
     border-radius: 20px
     padding: $xs-space + 4 $md-space
     cursor: pointer
 
-button
     &.btn-primary
         background: linear-gradient(to right, #fac423 0%, #fa8d5a 100%)
         color: $grey
@@ -209,8 +181,7 @@ button
     &.btn-secondary
         border: 1px solid $yellow
 
-
-button:focus, input:focus, .POST:focus, a:focus
+button:focus, input:focus, .POST:focus, a:focus, summary:focus
     outline: 2px dotted $mid-grey
 
 .error

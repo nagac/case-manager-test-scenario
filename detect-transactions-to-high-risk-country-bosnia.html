@@ -21,20 +21,21 @@
             <main class="col-10">
                 <div id="guts">
                     <header id="particles-js">
-                        <h1>Smurfing</h1>
+                        <h1>Detect Transactions to High Risk Country Bosnia</h1>
                         <h6>Small description goes here</h6>
                     </header>
 
                     <details>
                         <summary>Show Description</summary>
+                        <p>Demonstrate hawk:AIs ability to detect and allow decisions on transactions to high risk countries:</p>
                         <ol>
-                            <li>In case manager it should show it under 'open cases' with NEW processing status, case status OPEN</li>
-                            <li>If it is not NEW, make a change in mongo DB to NEW processing status, case status OPEN, transaction status PROCEEDED</li>
-                            <li>Refresh the UI, 'Assign to me' button should be displayed</li>
+                            <li>Based on configuration Bosnia is defined a high risk country</li>
+                            <li>Hawk:AI detects based on IBAN that the transaction is to Bosnia</li>
+                            <li>The Case Manager puts the transaction in to the historic context of the customer to allow and operator to make a decision on the case</li>
                         </ol>
                         <h3>Expected Result</h3>
                         <ol>
-                            <li>Case ID returns.</li>
+                            <li>Case appears in “Open Cases” in Case Manager</li>
                         </ol>
                     </details>
 
@@ -45,31 +46,31 @@
                             <div id="json-input" class="POST"><div class="pre">{
 "accountHoldingParty": "FUNDS_ORIGINATOR",
 "appendedCustomData": {
-"additionalCustomerId": "12345678"
+    "additionalCustomerId": "1231"
 },
-"balanceBeforeTransaction": 1234.56,
+"balanceBeforeTransaction": 8473.25,
 "balanceCurrency": "EUR",
 "callbackUrl": "https://callback.url/1234",
 "fundsBeneficiary": {
-"accountNumber": "CZ1873382772061233133661",
-"bankIdentifier": "SSKMDEMM",
-"holder": "Expecting-NEW for-this-case"
+    "accountNumber": "BA701023532851668387",
+    "bankIdentifier": "SSKMDEMM",
+    "holder": "Martin Matzko"
 },
 "fundsOriginator": {
-"accountNumber": "CZ1873382772061233133661",
-"bankIdentifier": "SSKMDEMM",
-"holder": "Tuan Nguyen"
+    "accountNumber": "DE12500105170648489890",
+    "bankIdentifier": "SSKMDEMM",
+    "holder": "Edin Dzeko"
 },
-"initiatedAmount": 12.34,
+"initiatedAmount": 293,
 "initiatedCurrency": "EUR",
 "initiatingParty": "FUNDS_ORIGINATOR",
 "purposeCode": "SSBE",
-"settledAmount": 56.78,
+"settledAmount": 293,
 "settledCurrency": "EUR",
-"tenantCustomerId": 12345678,
-"tenantProcessingTimestamp": "2019-02-28T14:38:47.812",
-"tenantTransactionId": 12345678,
-"usage": "Testing hawk:AI NEW processing status"
+"tenantCustomerId": 1234,
+"tenantProcessingTimestamp": "2019-10-16T14:38:47.812",
+"tenantTransactionId": 1234,
+"usage": "Testing High Risk Country"
 }                               </div> <!-- end: pre -->
                             </div> <!-- end: json-input -->
                         </section>
@@ -92,7 +93,7 @@
         <script src="assets/vendor/js/app.js"></script>
         <script>
             $( document ).ready(function () {
-                $( 'nav ul li:nth-child(6) a' ).addClass( 'active' )
+                $( 'nav ul li:nth-child(7) a' ).addClass( 'active' )
             });
         </script>
     </body>
