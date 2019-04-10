@@ -102,11 +102,11 @@ a {
   width: 100%; }
   .flex > div:first-child {
     border-right: 1px solid #e0e0e0;
-    padding-right: 12px;
+    padding-right: 24px;
     padding-top: 12px;
     width: 70%; }
   .flex > div:nth-child(2) {
-    padding-left: 12px;
+    padding-left: 24px;
     padding-top: 12px;
     width: 30%; }
 
@@ -200,7 +200,7 @@ details, section {
   border-radius: 16px; }
 
 details {
-  margin-top: -172.8px;
+  margin-top: -187.2px;
   z-index: 10; }
   details p {
     margin-top: 12px; }
