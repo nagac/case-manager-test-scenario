@@ -30,16 +30,18 @@
                         <div class="flex">
                             <div>
                                 <h3>Description</h3>
+                                <p>Demonstrate hawk:AIs ability to detect cases of smurfing by just splitting amounts into smaller chunks. :</p>
                                 <ol>
-                                    <li>In case manager it should show it under 'open cases' with NEW processing status, case status OPEN</li>
-                                    <li>If it is not NEW, make a change in mongo DB to NEW processing status, case status OPEN, transaction status PROCEEDED</li>
-                                    <li>Refresh the UI, 'Assign to me' button should be displayed</li>
+                                    <li>Transaction will generate an open case although the transaction amount 5.294 EUR is below the low risk threshold for the initiating customer</li>
+                                    <li>The decision to open a case is based on the fact that for the account holder there have been previous transactions that exceed the accumulated threshold</li>
+                                    <li>More sophistication if wanted: accept the transaction in case manager and case will have an accelerated threshold (threshold times the acceleration factor). Then send transaction again and it will appear in Auto-close. When you send further transactions a case will be generated once the new threshold is hit</li>
                                 </ol>
+                                <p>If you want to start the case history from scratch then generate a new IBAN <a href="http://randomiban.com/?country=Germany" target="_blank">(http://randomiban.com/?country=Germany)</a> for the account holder “Marius Musterman”</p>
                             </div>
                             <div>
                                 <h3>Expected Result</h3>
                                 <ol>
-                                    <li>Case ID returns.</li>
+                                    <li>Case will appear in “Open Cases” with a volume history leading to the decision</li>
                                 </ol>
                             </div>
                         </div>

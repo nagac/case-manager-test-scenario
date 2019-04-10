@@ -30,16 +30,18 @@
                         <div class="flex">
                             <div>
                                 <h3>Description</h3>
+                                <p>Demonstrate hawk:AIs ability to avoid false positives on the same already validated scenario (=contextual replay). The scenario is executed in two steps:</p>
                                 <ol>
-                                    <li>In case manager it should show it under 'open cases' with NEW processing status, case status OPEN</li>
-                                    <li>If it is not NEW, make a change in mongo DB to NEW processing status, case status OPEN, transaction status PROCEEDED</li>
-                                    <li>Refresh the UI, 'Assign to me' button should be displayed</li>
+                                    <li>Initial transaction generates an Open Case in Case Manager as the account holder name “Wolfgang Berner” fuzzy matches 3 known Politically Exposed Person (PEP) and one Special Interest Person (SIP)</li>
+                                    <li>Go into the case manager and set all matches to “No Match” and close the case</li>
+                                    <li>Send the case again and it will appear in Auto-Close based on the previous decision made by the operator</li>
                                 </ol>
+                                <p>If the scenario is executed as is you omit the first step as the step 1 is already done. To explicitly test scenario 1 use a new random IBAN for Wolfgang Berner <a href="http://randomiban.com/?country=Germany" target="_blank">(http://randomiban.com/?country=Germany)</a> as the contextual replay is done on the name/IBAN combination.</p>
                             </div>
                             <div>
                                 <h3>Expected Result</h3>
                                 <ol>
-                                    <li>Case ID returns.</li>
+                                    <li>After setting the matches to “No Match” previously, case appears in “Auto-Close Cases” in Case Manager</li>
                                 </ol>
                             </div>
                         </div>
@@ -52,32 +54,33 @@
                             <div id="json-input" class="POST"><div class="pre">{
 "accountHoldingParty": "FUNDS_ORIGINATOR",
 "appendedCustomData": {
-"additionalCustomerId": "12345678"
+    "additionalCustomerId": "1231"
 },
-"balanceBeforeTransaction": 1234.56,
+"balanceBeforeTransaction": 8473.25,
 "balanceCurrency": "EUR",
 "callbackUrl": "https://callback.url/1234",
 "fundsBeneficiary": {
-"accountNumber": "CZ1873382772061233133661",
-"bankIdentifier": "SSKMDEMM",
-"holder": "Expecting-NEW for-this-case"
+    "accountNumber": "DE77500105177239612724",
+    "bankIdentifier": "SSKMDEMM",
+    "holder": "Bernhard Altendorfer"
 },
 "fundsOriginator": {
-"accountNumber": "CZ1873382772061233133661",
-"bankIdentifier": "SSKMDEMM",
-"holder": "Tuan Nguyen"
+    "accountNumber": "DE45500105177423817174",
+    "bankIdentifier": "SSKMDEMM",
+    "holder": "Wolfgang Berner"
 },
-"initiatedAmount": 12.34,
+"initiatedAmount": 5.29,
 "initiatedCurrency": "EUR",
 "initiatingParty": "FUNDS_ORIGINATOR",
 "purposeCode": "SSBE",
-"settledAmount": 56.78,
+"settledAmount": 5.29,
 "settledCurrency": "EUR",
-"tenantCustomerId": 12345678,
-"tenantProcessingTimestamp": "2019-02-28T14:38:47.812",
-"tenantTransactionId": 12345678,
-"usage": "Testing hawk:AI NEW processing status"
-}                               </div> <!-- end: pre -->
+"tenantCustomerId": 12345,
+"tenantProcessingTimestamp": "2019-10-16T14:38:47.812",
+"tenantTransactionId": 12345,
+"usage": "Testing Contextual Replay hawk:AI"
+}
+                                </div> <!-- end: pre -->
                             </div> <!-- end: json-input -->
                         </section>
 
