@@ -48,6 +48,21 @@ a
     overflow: hidden
     min-width: 1170px
 
+.flex
+    display: flex
+    width: 100%
+
+    > div:first-child
+        border-right: 1px solid $very-light-grey
+        padding-right: $sm-space
+        padding-top: $sm-space
+        width: 70%
+    
+    > div:nth-child(2)
+        padding-left: $sm-space
+        padding-top: $sm-space
+        width: 30%
+
 .col-2
     background: $white
     box-shadow: 4px 0 16px 0 rgba(0, 0, 0, .2)
@@ -140,7 +155,7 @@ details, section
     border-radius: 16px
 
 details
-    display: flex
+    // display: flex
     margin-top: -$xxxl-space * 2.4
     z-index: 10
 

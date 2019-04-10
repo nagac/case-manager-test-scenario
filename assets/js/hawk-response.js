@@ -1,13 +1,9 @@
 $( document ).ready(function() {
     // add navigation menu items to pages dynamically
-    $('nav ul').append('<li><a href="index.html">Simple False Positive</a></li>');
-    $('nav ul').append('<li><a href="iran-sanction.html">Iran Sanction</a></li>');
-    $('nav ul').append('<li><a href="sanction-auto-close.html">Sanction Auto-close</a></li>');
-    $('nav ul').append('<li><a href="high-risk-country.html">High Risk Country</a></li>');
-    $('nav ul').append('<li><a href="send-money-home-to-family.html">Send Money Home to Family</a></li>');
-    $('nav ul').append('<li><a href="smurfing.html">Smurfing</a></li>');
     $('nav ul').append('<li><a href="detect-transactions-to-high-risk-country-bosnia.html">Detect Transactions to High Risk Country Bosnia</a></li>');
     $('nav ul').append('<li><a href="pep-auto-close-based-on-geography-and-birthdate.html">PEP Auto-Close based on Geography and Birthdate</a></li>');
+    $('nav ul').append('<li><a href="auto-close-based-on-contextual-replay.html">Auto Close based on Contextual Replay</a></li>');
+    $('nav ul').append('<li><a href="detect-amount-splitting.html">Detect Amount Splitting (Smurfs)</a></li>');
 
     var jsonStr = $(".pre").text();
     var jsonObj = JSON.parse(jsonStr);

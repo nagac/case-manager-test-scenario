@@ -22,21 +22,28 @@
                 <div id="guts">
                     <header id="particles-js">
                         <h1>PEP Auto-Close based on Geography and Birthdate</h1>
-                        <h6>Small description goes here</h6>
+                        <!-- <h6>Small description goes here</h6> -->
                     </header>
 
                     <details>
-                        <summary>Show Description</summary>
-                        <p>Demonstrate hawk:AIs ability to avoid false positives and auto-close cases based the following:</p>
-                        <ol>
-                            <li>The account holder name “Elizabeth Henderson” matches two known Politically Exposed Person (PEP)</li>
-                            <li>Hawk:AI has through the bank’s master data geographic and identity information on “Elizabeth Henderson</li>
-                            <li>Based on the fact that the geographic and identity information clearly show no overlaps hawk:AI makes the decision to auto-close the case despite the name match</li>
-                        </ol>
-                        <h3>Expected Result</h3>
-                        <ol>
-                            <li>Case matches 2 PEPs but will right away appear in “Auto-Close Cases” in Case Manager</li>
-                        </ol>
+                        <summary>Show Full Description</summary>
+                        <div class="flex">
+                          <div>
+                            <h3>Description</h3>
+                            <p>Demonstrate hawk:AIs ability to avoid false positives and auto-close cases based the following:</p>
+                            <ol>
+                                <li>The account holder name “Elizabeth Henderson” matches two known Politically Exposed Person (PEP)</li>
+                                <li>Hawk:AI has through the bank’s master data geographic and identity information on “Elizabeth Henderson</li>
+                                <li>Based on the fact that the geographic and identity information clearly show no overlaps hawk:AI makes the decision to auto-close the case despite the name match</li>
+                            </ol>
+                          </div>
+                          <div>
+                            <h3>Expected Result</h3>
+                            <ol>
+                                <li>Case matches 2 PEPs but will right away appear in “Auto-Close Cases” in Case Manager</li>
+                            </ol>
+                          </div>
+                        </div>
                     </details>
 
                     <div id="playground">
@@ -129,7 +136,7 @@
         <script src="assets/vendor/js/app.js"></script>
         <script>
             $( document ).ready(function () {
-                $( 'nav ul li:nth-child(8) a' ).addClass( 'active' )
+                $( 'nav ul li:nth-child(2) a' ).addClass( 'active' )
             });
         </script>
     </body>

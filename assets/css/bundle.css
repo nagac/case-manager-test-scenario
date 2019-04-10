@@ -97,6 +97,19 @@ a {
   overflow: hidden;
   min-width: 1170px; }
 
+.flex {
+  display: flex;
+  width: 100%; }
+  .flex > div:first-child {
+    border-right: 1px solid #e0e0e0;
+    padding-right: 12px;
+    padding-top: 12px;
+    width: 70%; }
+  .flex > div:nth-child(2) {
+    padding-left: 12px;
+    padding-top: 12px;
+    width: 30%; }
+
 .col-2 {
   background: #fff;
   box-shadow: 4px 0 16px 0 rgba(0, 0, 0, 0.2);
@@ -187,7 +200,6 @@ details, section {
   border-radius: 16px; }
 
 details {
-  display: flex;
   margin-top: -172.8px;
   z-index: 10; }
   details p {

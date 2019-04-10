@@ -21,21 +21,28 @@
             <main class="col-10">
                 <div id="guts">
                     <header id="particles-js">
-                        <h1>Send Money to Family</h1>
-                        <h6>Small description goes here</h6>
+                        <h1>Auto Close based on Contextual Replay</h1>
+                        <!-- <h6>Small description goes here</h6> -->
                     </header>
 
                     <details>
-                        <summary>Show Description</summary>
-                        <ol>
-                            <li>In case manager it should show it under 'open cases' with NEW processing status, case status OPEN</li>
-                            <li>If it is not NEW, make a change in mongo DB to NEW processing status, case status OPEN, transaction status PROCEEDED</li>
-                            <li>Refresh the UI, 'Assign to me' button should be displayed</li>
-                        </ol>
-                        <h3>Expected Result</h3>
-                        <ol>
-                            <li>Case ID returns.</li>
-                        </ol>
+                        <summary>Show Full Description</summary>
+                        <div class="flex">
+                            <div>
+                                <h3>Description</h3>
+                                <ol>
+                                    <li>In case manager it should show it under 'open cases' with NEW processing status, case status OPEN</li>
+                                    <li>If it is not NEW, make a change in mongo DB to NEW processing status, case status OPEN, transaction status PROCEEDED</li>
+                                    <li>Refresh the UI, 'Assign to me' button should be displayed</li>
+                                </ol>
+                            </div>
+                            <div>
+                                <h3>Expected Result</h3>
+                                <ol>
+                                    <li>Case ID returns.</li>
+                                </ol>
+                            </div>
+                        </div>
                     </details>
 
                     <div id="playground">
@@ -92,7 +99,7 @@
         <script src="assets/vendor/js/app.js"></script>
         <script>
             $( document ).ready(function () {
-                $( 'nav ul li:nth-child(5) a' ).addClass( 'active' )
+                $( 'nav ul li:nth-child(3) a' ).addClass( 'active' )
             });
         </script>
     </body>
